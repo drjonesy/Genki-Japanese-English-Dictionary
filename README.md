@@ -8,3 +8,9 @@ It currently works. The focus is to convert this to React and React Native.
 
 - The code uses an EventListener and searches a JavaScript Object.
 - There are currently 975 Japanese Words in databank.
+
+### Current Working Version
+
+[Live Edition](https://linuxsandbox.coleman.edu/~ad660252086/learngenki/search/)
+
+<img src="screenshot-2018.png"/>
