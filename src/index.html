@@ -1,148 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Genki English | Japanese Dictionary</title>
-	<style type="text/css">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A Japanese | English dictionary word look tool. The tool contains only the words found in the book series - Genki an Integrated Course in Elementary Japanese -">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <title>Genki English | Japanese Dictionary</title>
 
-
-		body {
-			font-family: sans-serif;
-			margin: 0px;
-		}
-
-		#container {
-			display: grid;
-			width: 100%;
-		}
-		.banner{
-			width: 100%;
-			color: #FFFFFF;
-			background: #f46705;
-			background: -moz-linear-gradient(left, #f46705 0%, #ff8635 100%);
-			background: -webkit-linear-gradient(left, #f46705 0%,#ff8635 100%);
-			background: linear-gradient(to right, #f46705 0%,#ff8635 100%);
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f46705', endColorstr='#ff8635',GradientType=1 );
-			padding: 0 1em;
-		}
-		
-		.searchBy button {
-			font-size: 1.5rem;
-			padding: 1rem 4rem;
-			background-color: rgb(0,122,255);
-			color: rgb(255, 255, 255);
-		}
-		.searchField input {
-			display: block;
-			width: 96%;
-			margin: .5em auto;
-			padding: .2em;
-			font-size: 1.5em;
-			border-radius: .5em;
-			border: solid 1px #CCC;
-		}
-		
-	
-		.columnTitles li, .resultsList li {
-			display: inline-grid;
-			width: 12em;
-			text-align: left;
-			font-size: 1.5em;
-		}
-
-		.columnTitles li {
-			color: #666;	
-		}
-
-		.resultsList ul {
-			border-bottom: solid 1px #CCC;
-		}
-
-
-		
-
-
-	</style>
 </head>
 <body>
 
-	<div id="container">
-		<div class="banner">
-			<h1>Genki (JPN / ENG) Dictionary</h1>
-		</div>
-		<div class="searchField">
-				<input type="text" name="search" id="search" />
-			</div>
-		
-		<div class="columnTitles">
-			<ul>
-				<li>kanji</li>
-				<li>kana</li>
-				<li>english</li>
-			</ul>
-		</div>
-		<div class="resultsList"></div>
+	<div class="container-fluid">
+    <!-- Hamburger Helper Info -->
+    <div class="pos-f-t">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark text-light update-text p-4">
+          <h5>Version 2.1</h5>
+          <p>Type in either English or Japanese. By default, the entire dictionary is listed. 
+            Using the search bar limits the results. Clicking on a word takes you to the word's <u>details page</u>.</p> 
+          <p>Using the [ <em> Back</em> ] link will load your last search results.
+          To clear your search results, simply clear the search field and do a blank search.</p>
+          <p><em>Romaji to Kana conversions and Searching Romaji are in development.</em></p>
+        </div>
+      </div>
 
-	</div>
-	<script src="wanakana.min.js"></script>
-	<script src="genki_dictionary.js"></script>
+      <!-- App -->
+      <div class="banner">
+        <div class="row">
+          <div class="col">
+            <!-- Logo, Banner, Info ? -->
+            <img src="LearnGenki-wordsearch-banner.png" class="img-fluid img-banner-padding" />
+          </div>
+          <div class="col-2">
+            <img src="info.png" class="float-right img-fluid img-banner-padding hamburger-menu" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false"
+              aria-label="Toggle navigation" />
+          </div>
+          
+        </div>  <!--//END ROW -->
+        <!-- Search field and column names -->
+        <div class="row">
+          <div class="col-12">
+            <input type="text" name="search" id="search" class="form-control" placeholder="search..." />
+          </div>
+        </div>
+        <div class="row columnTitles">
+          <div class="col">kanji</div>
+          <div class="col">kana</div>
+          <div class="col">english</div>
+        </div>
+      </div>
+    </div>
+
+		<!-- Results -->
+    <div class="resultsList"></div>
+
+  </div>
+  <!-- Bootstrap -->
+  <script src="bootstrap/js/jquery-3.2.1.slim.min.js"></script>
+  <script src="bootstrap/js/popper.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <!-- search and japanese -->
+	<script src="js/wanakana.min.js"></script>
+  <script src="js/genki_dictionary.js"></script>
+  <script src="js/search.js"></script>
 	<script type="text/javascript">
-	'use strict';
-		var resultsDiv = document.querySelector('.resultsList');
-		const dataSize = Object.keys(data["words"]).length;	
-
-		//===== Possibly return array instead and destructure array values
-		// check index for contains
-		function returnArray(i = ""){
-			let kanji = data["words"][i]["kanji"];	
-			let kana = data["words"][i]["kana"];
-			let english = data["words"][i]["english"];
-			return [kanji, kana, english];
-		}
-
-		/* == Returns a row if it contains the value found in the english key/column 
-			arrayIndex: defines the current index begin searched, ex: 0,1,2, etc...
-			searchText: value inputed into the text field
-		==*/
-		function searchBy(arrayIndex = "", searchText = ""){
-			let kanji = returnArray(arrayIndex)[0];
-			let kana = returnArray(arrayIndex)[1];
-			let english = returnArray(arrayIndex)[2];
-			
-			let row = "undefined";
-			let ul = document.createElement("ul");
-			if(kanji.includes(searchText) || kana.includes(searchText) || english.includes(searchText)){
-				row = `<li>${kanji}</li><li>${kana}</li><li>${english}</li>`;
-			}
-			ul.innerHTML = row;
-			return ul;
-		}		
-		
-		/* == Initially load all words ==*/
-		function resultsItr( searchText = ""){
-			resultsDiv.innerHTML = "";
-			for(let i = 0; i < dataSize; i += 1){
-				let result = searchBy(i, searchText);
-				let txt = result.innerText;
-				if(txt != "undefined"){
-					resultsDiv.appendChild(result);
-				}
-			}
-		};
-
-		/* == When Enter key presses run function == */
-		window.addEventListener('keydown', function(keyPressed){
-			if(keyPressed.keyCode === 13 || keyPressed.code === 'Enter' || keyPressed.key === 'Enter'){
-				let textField = document.querySelector('#search');
-				let v = textField.value;
-				resultsItr(v);
-			}	
-		});
-
 		//load all words
-		(resultsItr)();
-
-
+    (resultsItr)();
 	</script>
 </body>
 </html>

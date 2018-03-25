@@ -19,14 +19,12 @@ const data = {
         "kanji": "会う",
         "romaji": "au",
         "english": "to meet; to see (a person)",
-        "wordType": ""
     },
     {
         "kana": "アウトドア",
         "kanji": "",
         "romaji": "autodoa",
         "english": "outdoor activities",
-        "wordType": ""
     },
     {
         "kana": "あおい",

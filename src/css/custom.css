@@ -1,0 +1,61 @@
+body {
+			font-family: sans-serif;
+			margin: 0px;
+		}
+
+		.banner{
+			width: 100%;
+			color: #FFFFFF;
+			background: rgba(42, 169, 241, 1);
+			background: -moz-linear-gradient(left, rgba(42, 169, 241, 1) 0%, rgba(10, 101, 153, 1) 100%);
+			background: -webkit-linear-gradient(left,  rgba(42, 169, 241, 1) 0%,rgba(10, 101, 153, 1) 100%);
+			background: linear-gradient(to right,  rgba(42, 169, 241, 1) 0%,rgba(10, 101, 153, 1)100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(42, 169, 241, 1)', endColorstr='rgba(10, 101, 153, 1)',GradientType=1 );
+      padding: 0 1em .3em 1em;
+    }
+		
+		.resultsList .row {
+      border-bottom: #CCC solid 1px;
+      margin: 0px 1.5em;
+      padding-bottom: .5em;
+      padding-top: .5em;
+    }
+
+    .resultsList .row:hover {
+      cursor: pointer;
+      background-color: #f7f7f7;
+    }
+
+    .columnTitles {
+      font-variant: small-caps;
+      color: #FFFFFF;
+      margin: .1em;
+      font-weight: bold;
+      border-top: solid 1px #024973;
+    }
+    input#search {
+    
+      margin-bottom: 1em;
+    }
+    .details-key {
+      text-transform: uppercase;
+      font-size: small;
+      color: #a9a9a9;
+    }
+    .details-value {
+      font-size: x-large;
+    }
+
+    .img-banner-padding {
+      padding: 1em 0em;
+    }
+    .hamburger-menu {
+      max-height: 4em;
+    }
+    .hamburger-menu:hover {
+      cursor: pointer;
+    }
+
+    .update-text {
+      font-size: small;
+    }
