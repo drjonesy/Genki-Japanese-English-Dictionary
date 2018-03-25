@@ -1,16 +1,26 @@
-# Genki Japanese English Dictionary
+# Japanese & Engish Word Search Dictionary
 
-A simple Japanese/English dictionary word search application. Currently developed using vanilla JS for prototype testing. 
+A Japanese and English dictionary containing only the words from the book series "Genki an Integrated Course in Elementary Japanese". 
 
-It currently works. The focus is to convert this to React and React Native.
+[Web Edition](https://linuxsandbox.coleman.edu/~ad660252086/learngenki/search/)
 
-### JavaScript Code is easy to read with comments
+#### Version 2.1 - Completed
 
-- The code uses an EventListener and searches a JavaScript Object.
-- There are currently 975 Japanese Words in databank.
+- Updated the look and colors
+- Using Vanilla JS with Bootstrap 4 Framework
+- Responsive
+- Self-contained
+- JSON
+- Android update in production!!!
+- Search both English and Japanese
 
-### Current Working Version
+##### Coming Soon
+- Romaji to Kana Converter
+- Search by Romaji
 
-[Live Edition](https://linuxsandbox.coleman.edu/~ad660252086/learngenki/search/)
+### Mobile Preview
+_Clicking the (?) question shows the changes in the app_
 
-<img src="screenshot-2018.png"/>
+<img src="previews/mobile-view-1-all.png" width="250" /> <img src="previews/mobile-view-2-search.png" width="250" /> <img src="previews/mobile-view-3-details.png" width="250" /> <img src="previews/mobile-view-4-version-info.png" width="250" /> <img src="previews/mobile-view-5-jpn-search.png" width="250" />
+
+
