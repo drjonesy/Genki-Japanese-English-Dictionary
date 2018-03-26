@@ -58,6 +58,13 @@ window.addEventListener('keydown', function (keyPressed) {
   }
 });
 
+/* == Clear Results and Reset ==*/
+function clearResults(){
+  let textField = document.querySelector('#search');
+  textField.value = "";
+  resultsItr('');
+}
+
 /* == Back to full list button ==*/
 function backBtn(){
   //get last value searched
